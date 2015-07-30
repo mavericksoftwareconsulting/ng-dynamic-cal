@@ -12,6 +12,7 @@ cal-calendar{
     margin-top: 0;
     width:100%;
     border-collapse: collapse;
+	table-layout: fixed;
 }
 .cal-calendar table td{
     vertical-align:top;
@@ -54,6 +55,7 @@ cal-calendar{
 }
 
 .cal-calendar-event-tip{
+    max-width: 350px;
     background-color: white;
     color:black;
     border: 1px solid #D4D4D4;

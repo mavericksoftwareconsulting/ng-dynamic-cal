@@ -12,6 +12,7 @@ cal-calendar{
     margin-top: 0;
     width:100%;
     border-collapse: collapse;
+	table-layout: fixed;
 }
 .cal-calendar table td{
     vertical-align:top;

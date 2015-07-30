@@ -10,21 +10,7 @@ dynamicCal.directive('calHeader', ['$templateCache', function ($templateCache) {
         },
         controller: 'calHeaderCtr',
         link: function (scope, elem, attrs, controller) {
-            var tempUrl = 'calDefaultHeaderUrl';
-            if (scope.calendar != undefined) {
-                var template = scope.calendar.headerTemplate;
-                var templateUrl = scope.calendar.headerTemplateUrl;
-            }
-
-            if (templateUrl == null || templateUrl == undefined || templateUrl == "") {
-                if (template == null || template == undefined || template == "") templateUrl = "calHeader.html";
-                else {
-                    $templateCache.put(tempUrl, template);
-                    templateUrl = tempUrl;
-                }
-                //scope.templateUrl = tempUrl;
-            }
-            scope.templateUrl = templateUrl;
+            
         }
     }
 }]);
@@ -32,6 +18,24 @@ dynamicCal.directive('calHeader', ['$templateCache', function ($templateCache) {
 dynamicCal.controller("calHeaderCtr", ["$scope", function ($scope) {
     var contr = this;
     $scope.$watch('calendar', function () { contr.calendar = $scope.calendar; })
+
+
+    var tempUrl = 'calDefaultHeaderUrl';
+    if ($scope.calendar != undefined) {
+        var template = $scope.calendar.headerTemplate;
+        var templateUrl = $scope.calendar.headerTemplateUrl;
+    }
+
+    if (templateUrl == null || templateUrl == undefined || templateUrl == "") {
+        if (template == null || template == undefined || template == "") templateUrl = "calHeader.html";
+        else {
+            $templateCache.put(tempUrl, template);
+            templateUrl = tempUrl;
+        }
+        //scope.templateUrl = tempUrl;
+    }
+    $scope.templateUrl = templateUrl;
+
 }]);
 
 

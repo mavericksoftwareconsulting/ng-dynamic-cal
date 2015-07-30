@@ -30,7 +30,8 @@ dynamicCal.directive('calDay', ['$document', 'calEventHandler', function ($docum
             if (scope.day.date < today) elem.addClass("cal-past");
             if (scope.day.date.getTime() == today.getTime()) elem.addClass("cal-today");
 
-            scope.cellHeight = controller[0].cellHeight;
+            //scope.cellHeight = controller[0].cellHeight;
+            scope.cellHeight = scope.calendar.cellHeight;
             scope.fullDaysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             scope.daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
             var $_ = angular.element;
