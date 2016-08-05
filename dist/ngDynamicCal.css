@@ -204,7 +204,7 @@ cal-calendar .cal-overlay{
 
 .cal-calendar .cal-day .cal-container{
     position:relative;
-    overflow:hidden;
+    overflow:visible;
     background-color:inherit;
 }
 .cal-calendar .cal-day .cal-container .cal-event{
@@ -464,6 +464,13 @@ cal-calendar .cal-down {
     float:right;
 }
 
+/*The following is used when the shcedule width becomes small the date headers will wrap and overflow into the content below it*/
+ @media (max-width:600px){
+     .cal-calendar .cal-day-header{
+         z-index: 1;
+         height:50px;
+     }
+ }
 
 
 /* Event Groups
