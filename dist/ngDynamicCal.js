@@ -1357,27 +1357,14 @@ angular.module('dynamicCal').run(['$templateCache', function($templateCache) {
     "\n" +
     "\t</div>\r" +
     "\n" +
-    "\t<cal-event ng-repeat=\"event in day.events\" event=\"event.event\" ng-class=\"event.event.class\" calendar=\"calendar\" on-event-change=\"onEventChange\" on-event-click=\"onEventClick\" event-left=\"event.location.left\" event-width=\"event.location.width\" start-time=\"startTime\" end-time=\"endTime\"> \r" +
+	"\t<cal-event popover-placement=\"bottom\" popover-template=\"\'popover.html\'\" popover-popup-delay=\"500\" popover-trigger=\"mouseenter\" ng-repeat=\"event in day.events\" event=\"event.event\" ng-class=\"event.event.class\" calendar=\"calendar\" on-event-change=\"onEventChange\" on-event-click=\"onEventClick\" event-left=\"event.location.left\" event-width=\"event.location.width\" start-time=\"startTime\" end-time=\"endTime\"> \r\n" +
     "\n" +
     "\t</cal-event>\r" +
     "\n" +
     "</div>"
   );
-
-
-  $templateCache.put('calEvent.html',
-    "<!--<div class=\"cal-event-wrapper\">\r" +
-    "\n" +
-    "\t<div class=\"cal-event-head\">{{ (event.start.getHours() % 12 == 0 ? 12 : event.start.getHours() % 12) + \":\" + (event.start.getMinutes() < 10 ? \"0\" : \"\") + event.start.getMinutes() + \" - \" + (event.end.getHours() % 12 == 0 ? 12 : event.end.getHours() % 12) + \":\" + (event.end.getMinutes() < 10 ? \"0\" : \"\") + event.end.getMinutes() }}</div>\r" +
-    "\n" +
-    "\t<div class=\"cal-event-body\">{{ event.empName }}<br />{{ event.title }}</div>\r" +
-    "\n" +
-    "\t<label ng-show=\"event.edit\" class=\"cal-resize\"></label>\r" +
-    "\n" +
-    "</div>-->\r" +
-    "\n" +
-    "\r" +
-    "\n" +
+        
+  $templateCache.put('calEvent.html',            
     "\r" +
     "\n" +
     "    <div class=\"cal-event-head\">{{ (event.start.getHours() % 12 == 0 ? 12 : event.start.getHours() % 12) + \":\" + (event.start.getMinutes() < 10 ? \"0\" : \"\") + event.start.getMinutes() + \" - \" + (event.end.getHours() % 12 == 0 ? 12 : event.end.getHours() % 12) + \":\" + (event.end.getMinutes() < 10 ? \"0\" : \"\") + event.end.getMinutes() }}</div>\r" +
@@ -1423,7 +1410,6 @@ angular.module('dynamicCal').run(['$templateCache', function($templateCache) {
     "</div>"
   );
 
-
   $templateCache.put('calWeek.html',
     " <table>\r" +
     "\n" +
@@ -1467,5 +1453,8 @@ angular.module('dynamicCal').run(['$templateCache', function($templateCache) {
     "\n" +
     "</table>"
   );
+
+  $templateCache.put('popover.html',
+	"<div style='display::inline-block;text-align:center;'><strong>{{ event.event.empName }}</strong></br> {{ event.event.title }}</br> {{event.event.start | date : \'h:mm a\'}} to {{event.event.end| date : \'h:mm a\'}}</div>'");
 
 }]);
