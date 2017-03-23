@@ -1357,7 +1357,7 @@ angular.module('dynamicCal').run(['$templateCache', function($templateCache) {
     "\n" +
     "\t</div>\r" +
     "\n" +
-	"\t<cal-event popover-placement=\"bottom\" popover-template=\"\'popover.html\'\" popover-popup-delay=\"500\" popover-trigger=\"mouseenter\" ng-repeat=\"event in day.events\" event=\"event.event\" ng-class=\"event.event.class\" calendar=\"calendar\" on-event-change=\"onEventChange\" on-event-click=\"onEventClick\" event-left=\"event.location.left\" event-width=\"event.location.width\" start-time=\"startTime\" end-time=\"endTime\"> \r\n" +
+	"\t<cal-event popover-placement=\"bottom\" uib-popover-template=\"\'popover.html\'\" popover-popup-delay=\"500\" popover-trigger=\"mouseenter\" ng-repeat=\"event in day.events\" event=\"event.event\" ng-class=\"event.event.class\" calendar=\"calendar\" on-event-change=\"onEventChange\" on-event-click=\"onEventClick\" event-left=\"event.location.left\" event-width=\"event.location.width\" start-time=\"startTime\" end-time=\"endTime\"> \r\n" +
     "\n" +
     "\t</cal-event>\r" +
     "\n" +
@@ -1455,6 +1455,9 @@ angular.module('dynamicCal').run(['$templateCache', function($templateCache) {
   );
 
   $templateCache.put('popover.html',
-	"<div style='display::inline-block;text-align:center;'><strong>{{ event.event.empName }}</strong></br> {{ event.event.title }}</br> {{event.event.start | date : \'h:mm a\'}} to {{event.event.end| date : \'h:mm a\'}}</div>'");
+    "<div style='position: relative; display:inline-block;text-align:center;'><strong>{{ event.event.empName }}</strong></br> {{ event.event.title }}</br> {{event.event.start | date : \'h:mm a\'}} to {{event.event.end| date : \'h:mm a\'}} </div>'")
+
+ //  $templateCache.put('popover.html',
+	// "<div style='display::inline-block;text-align:center;'><strong>{{ event.event.empName }}</strong></br> {{ event.event.title }}</br> {{event.event.start | date : \'h:mm a\'}} to {{event.event.end| date : \'h:mm a\'}}</div>'");
 
 }]);
